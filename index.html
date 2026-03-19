@@ -308,7 +308,7 @@
 </head>
 <body>
 <div class='wrapper'>
-  <audio autoplay loop>
+  <audio id="musica" autoplay loop muted>
   <source src="song/Bonsai.mp3" type="audio/mpeg">
 </audio>
 
@@ -329,6 +329,8 @@
    document.addEventListener('contextmenu', function (e) {
   e.preventDefault();
 });
+
+  
 
 document.addEventListener('keydown', function (e) {
   if (e.key === 'F12') {
@@ -365,6 +367,15 @@ document.addEventListener("DOMContentLoaded", () => {
   changeGif(); 
 });
 
+  window.addEventListener("load", () => {
+  const audio = document.getElementById("musica");
+
+  // intenta quitar el mute automáticamente
+  setTimeout(() => {
+    audio.muted = false;
+    audio.play().catch(() => {});
+  }, 500);
+});
 </script>
 </body>
 
