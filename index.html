@@ -386,13 +386,14 @@ document.addEventListener("mousemove", () => {
 document.addEventListener("scroll", () => {
   audio.play();
 }, { once: true });
-</script>
-  <script id="fix-audio-mobile">
+<script id="fix-audio-mobile">
 document.addEventListener("touchstart", () => {
+  const audio = document.getElementById("musica");
   audio.play();
 }, { once: true });
 
 document.addEventListener("touchmove", () => {
+  const audio = document.getElementById("musica");
   audio.play();
 }, { once: true });
 </script>
