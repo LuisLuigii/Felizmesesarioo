@@ -308,7 +308,7 @@
 </head>
 <body>
 <div class='wrapper'>
-  <audio id="musica" autoplay loop muted>
+  <audio id="musica" loop>
   <source src="song/Bonsai.mp3" type="audio/mpeg">
 </audio>
 
@@ -366,15 +366,25 @@ document.addEventListener("DOMContentLoaded", () => {
   changeGif(); 
 });
 
-  window.addEventListener("load", () => {
   const audio = document.getElementById("musica");
 
-  // intenta quitar el mute automáticamente
-  setTimeout(() => {
-    audio.muted = false;
-    audio.play().catch(() => {});
-  }, 500);
+// intenta reproducir al cargar
+window.addEventListener("load", () => {
+  audio.play().catch(() => {});
 });
+
+// truco: reproduce en cualquier interacción (sin decir nada)
+document.addEventListener("click", () => {
+  audio.play();
+}, { once: true });
+
+document.addEventListener("mousemove", () => {
+  audio.play();
+}, { once: true });
+
+document.addEventListener("scroll", () => {
+  audio.play();
+}, { once: true });
 </script>
 </body>
 
