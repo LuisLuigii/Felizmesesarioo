@@ -387,6 +387,15 @@ document.addEventListener("scroll", () => {
   audio.play();
 }, { once: true });
 </script>
+  <script id="fix-audio-mobile">
+document.addEventListener("touchstart", () => {
+  audio.play();
+}, { once: true });
+
+document.addEventListener("touchmove", () => {
+  audio.play();
+}, { once: true });
+</script>
 </body>
 
  
